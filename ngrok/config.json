@@ -2,11 +2,10 @@
   "name": "ngrok Client",
   "version": "2.1.8",
   "slug": "ngrok",
-  "description": "A ngrok client for Hass.io",
+  "description": "A ngrok client for Home Assistant",
   "init": false,
   "webui": "http://[HOST]:[PORT:4040]",
-  "url": "https://github.com/dy1io/hassio-addons",
-  "stage": "deprecated",
+  "url": "https://github.com/thiaged/ha-addon-ngrok",
   "arch": [
     "aarch64",
     "amd64",
