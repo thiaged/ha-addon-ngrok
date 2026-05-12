@@ -5,9 +5,6 @@ configPath="/ngrok-config/ngrok.yml"
 mkdir -p /ngrok-config
 echo "log: stdout" > $configPath
 bashio::log.debug "Web interface port: $(bashio::addon.port 4040)"
-if bashio::var.has_value "$(bashio::config 'version')"; then
-  echo "version: $(bashio::config 'version')" >> $configPath
-fi
 if bashio::var.has_value "$(bashio::addon.port 4040)"; then
   echo "web_addr: 0.0.0.0:$(bashio::addon.port 4040)" >> $configPath
 fi
@@ -85,5 +82,7 @@ for id in $(bashio::config "tunnels|keys"); do
 done
 configfile=$(cat $configPath)
 bashio::log.debug "Config file: \n${configfile}"
+bashio::log.info "Upgrade config to version 3..."
+ngrok config upgrade --config $configPath
 bashio::log.info "Starting ngrok..."
 ngrok start --config $configPath --all
