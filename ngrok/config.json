@@ -22,6 +22,7 @@
     "4040/tcp": "Web interface"
   },
   "options": {
+    "version": 2,
     "log_level": "info",
     "auth_token": "",
     "region": "us",
@@ -36,6 +37,7 @@
     ]
   },
   "schema": {
+    "version": "int",
     "log_level": "list(crit|warn|error|info|debug)",
     "auth_token": "str?",
     "region": "list(us|eu|ap|au|sa|jp|in)?",
